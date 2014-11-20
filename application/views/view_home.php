@@ -30,10 +30,6 @@
         <h2>Pagina de Inicio</h2>
         
 
-<div class="alert alert-info">
-    <a href="#" class="close" data-dismiss="alert">&times;</a>
-    <strong>Note!</strong> Please read the comments carefully.
-</div>
 
 
                 
