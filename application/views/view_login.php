@@ -23,17 +23,11 @@
     <?php echo form_open('site/login_validation'); 
     
      echo validation_errors(); 
-    
-    
-             echo form_input( 'email', 'Ingrese su Email'); 
-     
-
-     
-             echo form_password('password', 'password'); 
-    
-
-        
-             echo form_submit( 'login_validation', 'Iniciar Sesion' ); 
+            $opts = 'placeholder="Ingrese su Email"';
+                
+            echo form_input( 'email', '', $opts);   
+            echo form_password('password', 'password'); 
+            echo form_submit( 'login_validation', 'Iniciar Sesion' ); 
         
 
      echo form_close(); 
