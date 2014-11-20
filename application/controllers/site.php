@@ -136,13 +136,6 @@ class Site extends CI_Controller {
 
         //print_r($cantidad);
         $this->load->view("view_jugos", $data);
-    }
-    
-//    modificar
-    function insert(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update();
-    $this->insumos();
-    }
+}
 
 }

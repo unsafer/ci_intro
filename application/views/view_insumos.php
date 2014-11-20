@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+
+<script type="text/javascript"> 
+
+$(document).on("click", ".open-Modal", function () {
+var myDNI = $(this).data('id');
+$(".modal-body #DNI").val( myDNI );
+});
+
+</script> 
+
 
 
     
@@ -15,22 +24,23 @@
 <body>
 
 <div id="container">
-	<a href="home">Home</a>
-        <a href="insumos">Insumos</a>
-        <a href="frutas">Frutas</a>
-        <a href="jugos">Jugos</a>
-        <a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a>
-	<h2>Accediendo a Base de Datos de Jugos!</h2>
+        <ul class="nav nav-tabs">
+        <li> <a href="home">Home</a></li>
+        <li class="active"><a href="insumos">Insumos</a></li>
+        <li><a href="frutas">Frutas</a></li>
+        <li><a href="jugos">Jugos</a></li>
+        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li>        
+        </ul>
         
-
     <div class="container" style="padding-top: 1em;">
-      <h1>Tabla de Ingredientes!</h1>
+      <h2>Ingredientes</h2>
       <table class="table table-hover">
           <thead>
-                  <tr>
-                              <th>Nombre del Ingredientes</th>
-                              <th>Precio</th>
+                  <tr class="active">
                               <th></th>
+                              <th>Ingrediente</th>
+                              <th>Precio</th>
+                              
                               
 
                   </tr>
@@ -39,15 +49,15 @@
            <?php
                               foreach($results as $row) { ?>
                   <tr>
-                       <td>Agua</td><td><?php echo $row->agua ?></td><td ><button type="button" class="btn btn-default" title="Add this item" data-id="1234" data-toggle="modal" data-target="#myModal">Modificar</button></td>                               
+                       <td class="success" align="center"> <img src="<?= base_url();?>images/agua.png" class="img-rounded" alt="Rounded Image"> </td> <td class="success">Agua</td><td class="success"><?php echo $row->agua ?></td><td class="success" align="center"><button type="button" class="btn btn-default" data-id="$row->id" data-toggle="modal" data-target="#myModal">Modificar</button></td>                               
                   </tr>
                   <tr>
   
-                       <td>Azucar</td><td><?php echo $row->azucar ?></td><td>Moficar</td>  
+                       <td class="warning" align="center"> <img src="<?= base_url();?>images/azucar.png" class="img-rounded" alt="Rounded Image"> </td> <td  class="warning">Azucar</td><td  class="warning"><?php echo $row->azucar ?></td><td  class="warning">Moficar</td>  
                   </tr>
                   <tr>
 
-                        <td>Leche</td><td><?php echo $row->leche ?></td><td>Moficar</td>  
+                        <td class="danger" align="center"> <img src="<?= base_url();?>images/milk.png" class="img-rounded" alt="Rounded Image"> </td> <td class="danger">Leche</td><td class="danger"><?php echo $row->leche ?></td><td class="danger">Moficar</td>  
                   </tr>
                                           
             <?php } ?>                              
@@ -55,11 +65,12 @@
           </tbody>
       </table>
 
-      <h1>Tabla de Gastos!</h1>
+      <h2>Gastos</h2>
       <table class="table table-hover">
           <thead>
-                  <tr>
-                              <th>Nombre del Gasto</th>
+                  <tr class="active">
+                              <th></th>
+                              <th>Gasto</th>
                               <th>Valor</th>
                               <th></th>
                               
@@ -70,11 +81,11 @@
            <?php
                               foreach($results as $row) { ?>
                   <tr>
-                       <td>Gastos Comunes</td><td><?php echo $row->gastoscomunes ?></td><td>Moficar</td>                               
+                       <td class="success" align="center"> <img src="<?= base_url();?>images/light.png" class="img-rounded" alt="Rounded Image"> </td> <td class="success">Gastos Comunes</td> <td class="success"><?php echo $row->gastoscomunes ?></td> <td class="success">Moficar</td>                               
                   </tr>
                   <tr>
   
-                       <td>Mano de Obra</td><td><?php echo $row->manodeobra ?></td><td>Moficar</td>  
+                       <td class="warning" align="center"> <img src="<?= base_url();?>images/empleados.png" class="img-rounded" alt="Rounded Image"> </td> <td class="warning">Mano de Obra</td> <td class="warning"><?php echo $row->manodeobra ?></td> <td class="warning">Moficar</td>  
                   </tr>
 
                                           
@@ -100,24 +111,14 @@
       </div>
       <div class="modal-body">
         <div class="modal-body">
-            <p>Precio:</p>
-            <?php $agua = $row->agua; ?>
-            
-            <form action="<?php echo base_url();?>Site/insert" method="post">
-            <input type = 'text' name='f1' value="<?=$row->agua?>"<br>
-            
-            <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <button type='submit' class="btn btn-primary">Guardar Cambios</button>
-            </div>
-            </form>
-            
-        </div>
+<p>some content</p>
+<input type="text" name="DNI" id="DNI" value=""/>
+</div>
       </div>
-      
-        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
-
-<!--hacer modals para cada modificar-->

@@ -18,31 +18,29 @@
 <div id="container">
     <h1><br>Sistema de Administracion!</h1><br><br>
     
-    <?php
-    
-    echo form_open('site/login_validation');
-    
-    echo validation_errors();
     
     
-    echo "<p>Email: ";
-    echo form_input('email');
-    echo "<p>";
+    <?php echo form_open('site/login_validation'); 
+    
+     echo validation_errors(); 
     
     
-    echo "<p>Password: ";
-    echo form_password('password');
-    echo "<p>";
+             echo form_input( 'email', 'Ingrese su Email'); 
+     
+
+     
+             echo form_password('password', 'password'); 
     
-    echo "<p>";
-    echo form_submit('login_submit', 'Login');
-    echo "<p>";
-    
-    echo form_close();
+
+        
+             echo form_submit( 'login_validation', 'Iniciar Sesion' ); 
+        
+
+     echo form_close(); 
     
     ?>
     
-</div>
+
         <script src="assets/js/jquery-1.8.2.min.js"></script>
         <script src="assets/js/supersized.3.2.7.min.js"></script>
         <script src="assets/js/supersized-init.js"></script>
