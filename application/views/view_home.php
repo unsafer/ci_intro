@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+
+
+    
+<head>
+    <link href="<?= base_url();?>bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="<?= base_url();?>bootstrap/js/jquery.js"></script>
+    <script src="<?= base_url();?>bootstrap/js/bootstrap.min.js"></script>
+	<title> <?php echo $title; ?> </title>
+
+</head>
+<body>
+
+<div id="container">
+        <a href="home">Home</a>
+        <a href="insumos">Insumos</a>
+        <a href="frutas">Frutas</a>
+        <a href="jugos">Jugos</a>
+        <a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a>
+	<h1>Sistema de Administracion!</h1>
+
+        
+               
+        
+        <h2>Pagina de Inicio</h2>
+
+                
+                
+
+</div>
+
+</body>
+</html> 
