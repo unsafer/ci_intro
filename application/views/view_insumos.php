@@ -15,20 +15,22 @@
 <body>
 
 <div id="container">
-	<a href="home">Home</a>
-        <a href="insumos">Insumos</a>
-        <a href="frutas">Frutas</a>
-        <a href="jugos">Jugos</a>
-        <a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a>
-	<h2>Accediendo a Base de Datos de Jugos!</h2>
+	<ul class="nav nav-tabs">
+        <li> <a href="home">Home</a></li>
+        <li class="active"><a href="insumos">Insumos</a></li>
+        <li><a href="frutas">Frutas</a></li>
+        <li><a href="jugos">Jugos</a></li>
+        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li>        
+        </ul>
         
 
     <div class="container" style="padding-top: 1em;">
-      <h1>Tabla de Ingredientes!</h1>
+      <h1>Ingredientes!</h1>
       <table class="table table-hover">
           <thead>
-                  <tr>
-                              <th>Nombre del Ingredientes</th>
+                  <tr class="warning">
+                            <th></th>  
+                            <th>Nombre del Ingredientes</th>
                               <th>Precio</th>
                               <th></th>
                               
@@ -39,15 +41,15 @@
            <?php
                               foreach($results as $row) { ?>
                   <tr>
-                       <td>Agua</td><td><?php echo $row->agua ?></td><td ><button type="button" class="btn btn-default" title="Add this item" data-id="1234" data-toggle="modal" data-target="#myModal">Modificar</button></td>                               
+                       <td align="center" class="success"><img src="<?= base_url();?>images/agua.png" class="img-rounded" alt="Rounded Image"></td><td class="success">Agua</td><td class="success"><?php echo $row->agua ?></td><td class="success"><button type="button" class="btn btn-default" title="Add this item" data-id="1234" data-toggle="modal" data-target="#myModal">Modificar</button></td>                               
                   </tr>
                   <tr>
   
-                       <td>Azucar</td><td><?php echo $row->azucar ?></td><td>Moficar</td>  
+                       <td align="center" class="active"><img src="<?= base_url();?>images/azucar.png" class="img-rounded" alt="Rounded Image"></td><td class="active">Azucar</td><td class="active"><?php echo $row->azucar ?></td><td class="active">Moficar</td>  
                   </tr>
                   <tr>
 
-                        <td>Leche</td><td><?php echo $row->leche ?></td><td>Moficar</td>  
+                        <td align="center" class="danger"><img src="<?= base_url();?>images/milk.png" class="img-rounded" alt="Rounded Image"></td><td class="danger">Leche</td><td class="danger"><?php echo $row->leche ?></td><td class="danger">Moficar</td>  
                   </tr>
                                           
             <?php } ?>                              
@@ -55,10 +57,11 @@
           </tbody>
       </table>
 
-      <h1>Tabla de Gastos!</h1>
+      <h1>Gastos!</h1>
       <table class="table table-hover">
           <thead>
-                  <tr>
+                  <tr class="warning">
+                              <th></th>
                               <th>Nombre del Gasto</th>
                               <th>Valor</th>
                               <th></th>
@@ -70,11 +73,11 @@
            <?php
                               foreach($results as $row) { ?>
                   <tr>
-                       <td>Gastos Comunes</td><td><?php echo $row->gastoscomunes ?></td><td>Moficar</td>                               
+                       <td align="center" class="success"><img src="<?= base_url();?>images/light.png" class="img-rounded" alt="Rounded Image"></td><td class="success">Gastos Comunes</td><td class="success"><?php echo $row->gastoscomunes ?></td><td class="success">Moficar</td>                               
                   </tr>
                   <tr>
   
-                       <td>Mano de Obra</td><td><?php echo $row->manodeobra ?></td><td>Moficar</td>  
+                       <td align="center"  class="active"><img src="<?= base_url();?>images/empleados.png" class="img-rounded" alt="Rounded Image"></td><td class="active">Mano de Obra</td><td class="active"><?php echo $row->manodeobra ?></td><td class="active">Moficar</td>  
                   </tr>
 
                                           
