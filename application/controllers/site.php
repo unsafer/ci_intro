@@ -143,4 +143,10 @@ class Site extends CI_Controller {
     $this->gastos_db->update_agua();
     $this->insumos();
     }
+    
+    function modificar_azucar(){
+    $this->load->model('gastos_db');
+    $this->gastos_db->update_agua();
+    $this->insumos();
+    }
 }
