@@ -137,5 +137,10 @@ class Site extends CI_Controller {
         //print_r($cantidad);
         $this->load->view("view_jugos", $data);
 }
-
+    //    modificar
+    function modificar_agua(){
+    $this->load->model('gastos_db');
+    $this->gastos_db->update_agua();
+    $this->insumos();
+    }
 }
