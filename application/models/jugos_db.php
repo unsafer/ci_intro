@@ -10,7 +10,5 @@ class Jugos_db extends CI_Model{
         
             $this->db->query("UPDATE jugos SET base=".$base.", venta=".$venta);
     }
-    function calcular_preciobase(){
-        
-    }
+
 }

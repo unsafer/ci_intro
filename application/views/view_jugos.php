@@ -18,7 +18,8 @@
         <li><a href="insumos">Insumos</a></li>
         <li><a href="frutas">Frutas</a></li>
         <li class="active"><a href="jugos">Jugos</a></li>
-        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li>        
+        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </ul>
         
         
@@ -63,7 +64,11 @@
 
                                                                         }
                                                                         ?> </td>
-                                                      <td><?php echo $row->base ?></td>
+                                                      <td><?php $query = mysql_query("select precio_base from precio_jugos where id_jugos =".$row->id."") or die(mysql_error());  
+                                                                $row2 = mysql_fetch_row($query);
+                                                                //print_r($row2);
+                                                                echo $row2[0]
+                                                      ?></td>
                                                       <td><?php echo $row->venta ?></td>
 
                                                       
