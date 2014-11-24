@@ -19,7 +19,6 @@
         <li><a href="frutas">Frutas</a></li>
         <li class="active"><a href="jugos">Jugos</a></li>
         <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li> 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </ul>
         
         
@@ -59,7 +58,7 @@
                                     <td><?php echo $row->leche ?></td>
                                     <td><?php echo $row->frutas ?></td>
                                     <td><?php echo $row->precio_base ?></td>
-                                    <td><?php echo $row->precio_base ?></td>
+                                    <td><?php echo $row->precio_venta ?></td>
 
                             </tr>
                      <?php } ?>
