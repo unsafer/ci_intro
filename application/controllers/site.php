@@ -127,11 +127,10 @@ class Site extends CI_Controller {
     public function jugos(){
         $data['title'] = "Jugos!";
         $this->load->model("jugos_db");
-        $this->load->model("jhf_db");
-        $this->load->model("frutas_db");
+        //$this->load->model("jhf_db");
+        //$this->load->model("frutas_db");
         $data['jugos'] = $this->jugos_db->getJugos();
-
-        //print_r($cantidad);
+        //print_r($data);
         $this->load->view("view_jugos", $data);
     }
     //    modificar

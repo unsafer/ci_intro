@@ -50,34 +50,19 @@
                   </tr>
           </thead>
           <tbody>
-                  <?php
-                              foreach($jugos as $row) { ?>
-                                          <tr class="success">
-                                                      <td><?php echo $row->id ?> </td>
-                                                      <td><?php echo $row->nombre ?></td>
-                                                      <td><?php echo $row->agua ?></td>
-                                                      <td><?php echo $row->azucar ?></td>
-                                                      <td><?php echo $row->leche ?></td>
-                                                      <td><?php echo $row->frutas ?></td>
-                                                      <td><?php echo $row->precio_base ?></td>
-                                                      <td><?php echo $row->precio_base ?></td>
-<!--                                                      <td><?php      $query = mysql_query("select fru.nombre from frutas fru join jugos_has_frutas jhf on fru.id = jhf.frutas_id where jhf.jugos_id = '".$row->id."' order by fru.nombre") or die(mysql_error());
-                                                                        while($elemento= mysql_fetch_array($query)){
-                                                                        echo $elemento['nombre'].' ';
+                  <?php foreach($jugos as $row) { ?>
+                            <tr class="success">
+                                    <td><?php echo $row->id ?> </td>
+                                    <td><?php echo $row->nombre ?></td>
+                                    <td><?php echo $row->agua ?></td>
+                                    <td><?php echo $row->azucar ?></td>
+                                    <td><?php echo $row->leche ?></td>
+                                    <td><?php echo $row->frutas ?></td>
+                                    <td><?php echo $row->precio_base ?></td>
+                                    <td><?php echo $row->precio_base ?></td>
 
-                                                                        }
-                                                                        ?> </td>
-                                                      <td><?php $query = mysql_query("select precio_base from precio_jugos where id_jugos =".$row->id."") or die(mysql_error());  
-                                                                $row2 = mysql_fetch_row($query);
-                                                                //print_r($row2);
-                                                                echo $row2[0]
-                                                      ?></td>
-                                                      <td><?php echo $row->venta ?></td>-->
-
-                                                      
-                                          </tr>
-                              <?php }
-                  ?>
+                            </tr>
+                     <?php } ?>
           </tbody>
       </table>
     </div>
