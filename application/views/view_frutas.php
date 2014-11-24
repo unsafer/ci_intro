@@ -5,11 +5,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> <?php echo $title; ?> </title>
-  <link href="<?= base_url();?>bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url();?>bootstrap/css/main.css" rel="stylesheet">
   
   <link href="<?= base_url();?>bootstrap/css/bootstrap.css" rel="stylesheet">
+  <script src="<?= base_url();?>bootstrap/js/jquery-1.11.1.min.js"></script>
+  <script src="<?= base_url();?>bootstrap/js/bootstrap.min.js"></script>
 </head>
+
+<script type="text/javascript">
+    function mostrar_modal(nombre,preciokilo){
+        //El nodo recibido es SPAN
+        //alert(nombre+preciokilo);
+        $('#myModal').modal({
+                show: true 
+            });
+        
+       $('#myModalLabel').text(nombre)
+       document.modal.f1.value = preciokilo;
+
+    };
+    $(function(){
+                
+        
+
+    });
+    
+    
+</script>
+
 <body>
 
 <div id="container">
@@ -99,6 +122,7 @@
                                                       </td>
                                                       <td><?php echo $row->nombre ?></td>
                                                       <td><?php echo $row->preciokilo ?></td>
+                                                      <td><span type="button" onclick="mostrar_modal('<?php echo $row->nombre ?>', '<?php echo $row->preciokilo ?>');" class="btn btn-default">Modificar</span></td>
                                                       
 
                                           </tr>
@@ -111,3 +135,34 @@
 
 </body>
 </html>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+            <p>Precio:</p>
+            
+            <form action="" method="post" name="modal">
+            <input id="precio_input" type = 'text' name='f1'>
+            <br>   
+            <br>  
+            <br>  
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type='submit' class="btn btn-primary" name="guardar">Guardar Cambios</button>
+            </div>
+            </form>
+            
+        </div>
+      </div>
+      
+        
+    </div>
+  </div>
+</div>
