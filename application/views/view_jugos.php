@@ -18,7 +18,8 @@
         <li><a href="insumos">Insumos</a></li>
         <li><a href="frutas">Frutas</a></li>
         <li class="active"><a href="jugos">Jugos</a></li>
-        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li>        
+        <li><a href='<?php echo base_url() ."site/logout" ?>'>Cerrar Sesion</a></li> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
         </ul>
         
         
@@ -49,27 +50,19 @@
                   </tr>
           </thead>
           <tbody>
-                  <?php
-                              foreach($jugos as $row) { ?>
-                                          <tr class="success">
-                                                      <td><?php echo $row->id ?> </td>
-                                                      <td><?php echo $row->nombre ?></td>
-                                                      <td><?php echo $row->agua ?></td>
-                                                      <td><?php echo $row->azucar ?></td>
-                                                      <td><?php echo $row->leche ?></td>
-                                                      <td><?php      $query = mysql_query("select fru.nombre from frutas fru join jugos_has_frutas jhf on fru.id = jhf.frutas_id where jhf.jugos_id = '".$row->id."' order by fru.nombre") or die(mysql_error());
-                                                                        while($elemento= mysql_fetch_array($query)){
-                                                                        echo $elemento['nombre'].' ';
+                  <?php foreach($jugos as $row) { ?>
+                            <tr class="success">
+                                    <td><?php echo $row->id ?> </td>
+                                    <td><?php echo $row->nombre ?></td>
+                                    <td><?php echo $row->agua ?></td>
+                                    <td><?php echo $row->azucar ?></td>
+                                    <td><?php echo $row->leche ?></td>
+                                    <td><?php echo $row->frutas ?></td>
+                                    <td><?php echo $row->precio_base ?></td>
+                                    <td><?php echo $row->precio_base ?></td>
 
-                                                                        }
-                                                                        ?> </td>
-                                                      <td><?php echo $row->base ?></td>
-                                                      <td><?php echo $row->venta ?></td>
-
-                                                      
-                                          </tr>
-                              <?php }
-                  ?>
+                            </tr>
+                     <?php } ?>
           </tbody>
       </table>
     </div>
