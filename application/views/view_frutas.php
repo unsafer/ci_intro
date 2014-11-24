@@ -21,12 +21,13 @@
             });
         
        $('#myModalLabel').text(nombre)
-       document.modal.f1.value = preciokilo;
+       document.modal.precio_fruta.value = preciokilo;
+       document.modal.nombre_fruta.value = nombre;
+
+       document.modal.action = "<?php echo base_url();?>Site/modificar_frutas";
 
     };
     $(function(){
-                
-        
 
     });
     
@@ -145,11 +146,12 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <div class="modal-body">
+        <div class="modal-body" name='precio_fruta'>
             <p>Precio:</p>
             
             <form action="" method="post" name="modal">
-            <input id="precio_input" type = 'text' name='f1'>
+            <input type="hidden" name="nombre_fruta">
+            <input id="precio_input" type = 'text' name='precio_fruta'>
             <br>   
             <br>  
             <br>  

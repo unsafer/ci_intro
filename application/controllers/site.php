@@ -161,4 +161,11 @@ class Site extends CI_Controller {
         $this->gastos_db->update_manodeobra();
         $this->insumos();
     }
+    function modificar_frutas(){
+        $nombre_fruta = $_POST['nombre_fruta'];
+        $precio_fruta = $_POST['precio_fruta'];
+        $this->load->model('frutas_db');
+        $this->frutas_db->update_fruta($nombre_fruta,$precio_fruta);
+        $this->frutas();
+    }
 }
