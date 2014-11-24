@@ -58,7 +58,10 @@
                                                       <td><?php echo $row->agua ?></td>
                                                       <td><?php echo $row->azucar ?></td>
                                                       <td><?php echo $row->leche ?></td>
-                                                      <td><?php      $query = mysql_query("select fru.nombre from frutas fru join jugos_has_frutas jhf on fru.id = jhf.frutas_id where jhf.jugos_id = '".$row->id."' order by fru.nombre") or die(mysql_error());
+                                                      <td><?php echo $row->frutas ?></td>
+                                                      <td><?php echo $row->precio_base ?></td>
+                                                      <td><?php echo $row->precio_base ?></td>
+<!--                                                      <td><?php      $query = mysql_query("select fru.nombre from frutas fru join jugos_has_frutas jhf on fru.id = jhf.frutas_id where jhf.jugos_id = '".$row->id."' order by fru.nombre") or die(mysql_error());
                                                                         while($elemento= mysql_fetch_array($query)){
                                                                         echo $elemento['nombre'].' ';
 
@@ -69,7 +72,7 @@
                                                                 //print_r($row2);
                                                                 echo $row2[0]
                                                       ?></td>
-                                                      <td><?php echo $row->venta ?></td>
+                                                      <td><?php echo $row->venta ?></td>-->
 
                                                       
                                           </tr>

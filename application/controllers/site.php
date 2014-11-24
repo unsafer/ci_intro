@@ -52,8 +52,7 @@ class Site extends CI_Controller {
             $this->home();
         } else{
             redirect('site/restricted');
-        }
-        
+        }        
     }
     
     public function restricted(){
@@ -92,6 +91,7 @@ class Site extends CI_Controller {
         $data['title'] = "Insumos!";
         $this->load->model("gastos_db");
         $data['results'] = $this->gastos_db->getGastos();
+        //print_r($data);
         $this->load->view("view_insumos", $data);
     }
     
@@ -111,13 +111,10 @@ class Site extends CI_Controller {
     public function frutas(){
         $data['title'] = "Frutas!";
         $this->load->model("frutas_db");
-        $data['results'] = $this->frutas_db->getFrutas();
+        $data['results'] = $this->frutas_db->getFrutas();        
         $this->load->view("view_frutas", $data);
-        
     }
-    
-    
-    
+        
     public function updateValues(){
         $this->load->model("get_db");
         $newRow = array(
@@ -132,36 +129,36 @@ class Site extends CI_Controller {
         $this->load->model("jugos_db");
         $this->load->model("jhf_db");
         $this->load->model("frutas_db");
-       $data['jugos'] = $this->jugos_db->getJugos();
+        $data['jugos'] = $this->jugos_db->getJugos();
 
         //print_r($cantidad);
         $this->load->view("view_jugos", $data);
-}
+    }
     //    modificar
     function modificar_agua(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update_agua();
-    $this->insumos();
+        $this->load->model('gastos_db');
+        $this->gastos_db->update_agua();
+        $this->insumos();
     }
     
     function modificar_azucar(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update_azucar();
-    $this->insumos();
+        $this->load->model('gastos_db');
+        $this->gastos_db->update_azucar();
+        $this->insumos();
     }
     function modificar_leche(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update_azucar();
-    $this->insumos();
+        $this->load->model('gastos_db');
+        $this->gastos_db->update_leche();
+        $this->insumos();
     }
     function gastos_comunes(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update_azucar();
-    $this->insumos();
+        $this->load->model('gastos_db');
+        $this->gastos_db->update_gastoscomunes();
+        $this->insumos();
     }
-function mano_obra(){
-    $this->load->model('gastos_db');
-    $this->gastos_db->update_azucar();
-    $this->insumos();
+    function mano_obra(){
+        $this->load->model('gastos_db');
+        $this->gastos_db->update_manodeobra();
+        $this->insumos();
     }
 }
