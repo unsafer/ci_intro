@@ -12,9 +12,9 @@ class Site extends CI_Controller {
         $this->load->view('view_login');
     }
 
-    public function hello(){
-        echo "algo mas <br>";
-    }
+//    public function hello(){
+//        echo "algo mas <br>";
+//    }
     
     public function login_validation() {
         $this->load->library('form_validation');
@@ -64,107 +64,142 @@ class Site extends CI_Controller {
         redirect('');
     }
     
-    public function addStuff(){
-        $this->load->model("math");
-        echo $this->math->add(6,6);
-    }
+//    public function addStuff(){
+//        $this->load->model("math");
+//        echo $this->math->add(6,6);
+//    }
     
     public function home(){
-        $data['title'] = "Home!";
-        $this->load->view("view_home", $data);
+        if($this->session->userdata('is_logged_in')){
+            $data['title'] = "Home!";
+            $this->load->view("view_home", $data);
+        } else{
+            redirect('site/restricted');
+        }        
     }
-    public function asignar(){
-        $data['title'] = "Insumos!";
-      
-        $this->load->model("math");
-        $this->math->asignar1();
-        $data['total'] = $this->math->total();
-        $this->load->view("insumos", $data);
-    }
+//    public function asignar(){
+//        $data['title'] = "Insumos!";      
+//        $this->load->model("math");
+//        $this->math->asignar1();
+//        $data['total'] = $this->math->total();
+//        $this->load->view("insumos", $data);
+//    }
     
     //esta es de pruebaaaaa
-    public function example(){
-        $data['title'] = "Ejemplo!";
-        $this->load->view("view_example", $data);
-    }
+//    public function example(){
+//        $data['title'] = "Ejemplo!";
+//        $this->load->view("view_example", $data);
+//    }
     public function insumos(){
-        $data['title'] = "Insumos!";
-        $this->load->model("gastos_db");
-        $data['results'] = $this->gastos_db->getGastos();
-        //print_r($data);
-        $this->load->view("view_insumos", $data);
+        if($this->session->userdata('is_logged_in')){
+            $data['title'] = "Insumos!";
+            $this->load->model("gastos_db");
+            $data['results'] = $this->gastos_db->getGastos();
+            //print_r($data);
+            $this->load->view("view_insumos", $data);
+        } else{
+            redirect('site/restricted');
+        }         
     }
     
-    public function save(){
-        $this->load->model('testformmodel');
-        if($this->input->post('submit')){
-            $this->testformmodel->process();
-        }
-        redirect("site");
-    }
+//    public function save(){
+//        $this->load->model('testformmodel');
+//        if($this->input->post('submit')){
+//            $this->testformmodel->process();
+//        }
+//        redirect("site");
+//    }
     
     //termina acaaaaaaaaaaa
-   
-    
-
     
     public function frutas(){
-        $data['title'] = "Frutas!";
-        $this->load->model("frutas_db");
-        $data['results'] = $this->frutas_db->getFrutas();        
-        $this->load->view("view_frutas", $data);
+        if($this->session->userdata('is_logged_in')){
+            $data['title'] = "Frutas!";
+            $this->load->model("frutas_db");
+            $data['results'] = $this->frutas_db->getFrutas();        
+            $this->load->view("view_frutas", $data);
+        } else{
+            redirect('site/restricted');
+        }        
     }
         
-    public function updateValues(){
-        $this->load->model("get_db");
-        $newRow = array(
-            "name" => "angie"
-        );
-        $this->get_db->update1($newRow);
-        echo "ha sido actualizado";
-    }
+//    public function updateValues(){
+//        $this->load->model("get_db");
+//        $newRow = array(
+//            "name" => "angie"
+//        );
+//        $this->get_db->update1($newRow);
+//        echo "ha sido actualizado";
+//    }
     
     public function jugos(){
-        $data['title'] = "Jugos!";
-        $this->load->model("jugos_db");
-        //$this->load->model("jhf_db");
-        //$this->load->model("frutas_db");
-        $data['jugos'] = $this->jugos_db->getJugos();
-        //print_r($data);
-        $this->load->view("view_jugos", $data);
+        if($this->session->userdata('is_logged_in')){
+            $data['title'] = "Jugos!";
+            $this->load->model("jugos_db");
+            $data['jugos'] = $this->jugos_db->getJugos();
+            //print_r($data);
+            $this->load->view("view_jugos", $data);
+        } else{
+            redirect('site/restricted');
+        } 
     }
     //    modificar
     function modificar_agua(){
-        $this->load->model('gastos_db');
-        $this->gastos_db->update_agua();
-        $this->insumos();
+        if($this->session->userdata('is_logged_in')){
+            $this->load->model('gastos_db');
+            $this->gastos_db->update_agua();
+            $this->insumos();
+        } else{
+            redirect('site/restricted');
+        }        
     }
     
     function modificar_azucar(){
-        $this->load->model('gastos_db');
-        $this->gastos_db->update_azucar();
-        $this->insumos();
+        if($this->session->userdata('is_logged_in')){
+            $this->load->model('gastos_db');
+            $this->gastos_db->update_azucar();
+            $this->insumos();
+        } else{
+            redirect('site/restricted');
+        }        
     }
     function modificar_leche(){
-        $this->load->model('gastos_db');
-        $this->gastos_db->update_leche();
-        $this->insumos();
+        if($this->session->userdata('is_logged_in')){
+            $this->load->model('gastos_db');
+            $this->gastos_db->update_leche();
+            $this->insumos();
+        } else{
+            redirect('site/restricted');
+        }
     }
     function gastos_comunes(){
-        $this->load->model('gastos_db');
-        $this->gastos_db->update_gastoscomunes();
-        $this->insumos();
+        if($this->session->userdata('is_logged_in')){
+            $this->load->model('gastos_db');
+            $this->gastos_db->update_gastoscomunes();
+            $this->insumos();
+        } else{
+            redirect('site/restricted');
+        }        
     }
     function mano_obra(){
-        $this->load->model('gastos_db');
-        $this->gastos_db->update_manodeobra();
-        $this->insumos();
+        if($this->session->userdata('is_logged_in')){
+            $this->load->model('gastos_db');
+            $this->gastos_db->update_manodeobra();
+            $this->insumos();
+        } else{
+            redirect('site/restricted');
+        }         
     }
     function modificar_frutas(){
-        $nombre_fruta = $_POST['nombre_fruta'];
-        $precio_fruta = $_POST['precio_fruta'];
-        $this->load->model('frutas_db');
-        $this->frutas_db->update_fruta($nombre_fruta,$precio_fruta);
-        $this->frutas();
+        if($this->session->userdata('is_logged_in')){
+            $nombre_fruta = $_POST['nombre_fruta'];
+            $precio_fruta = $_POST['precio_fruta'];
+            $this->load->model('frutas_db');
+            $this->frutas_db->update_fruta($nombre_fruta,$precio_fruta);
+            $this->frutas();
+        } else{
+            redirect('site/restricted');
+        }
+        
     }
 }
